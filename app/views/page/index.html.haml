@@ -1,0 +1,41 @@
+%div.nav.navbar-default.navbar-fixed-top
+  %div.container-fluid
+    %a.navbar-brand(href="#")<
+      Music database
+
+%div.div-contents.div-artist
+  %ul.nav.nav-pills.nav-stacked#list-artist
+
+%div.div-contents.div-release
+  %ul.nav.nav-pills.nav-stacked#list-release
+
+%div.div-contents.div-track
+  %ul.nav.nav-pills.nav-stacked#list-track
+
+%div.div-header.div-artist
+  %div.panel.panel-default.dropdown.cursor-pointer
+    %div.panel-heading.dropdown-toggle(data-toggle="dropdown")<
+      Artists
+      %span.caret
+    %ul.dropdown-menu#menu-artist
+      = render 'dropdown'
+
+%div.div-header.div-release
+  %div.panel.panel-default.dropdown.cursor-pointer
+    %div.panel-heading.dropdown-toggle(data-toggle="dropdown")<
+      Releases
+      %span.caret
+    %ul.dropdown-menu#menu-release
+      = render 'dropdown'
+
+%div.div-header.div-track
+  %div.panel.panel-default.dropdown.cursor-pointer
+    %div.panel-heading.dropdown-toggle(data-toggle="dropdown")<
+      Tracks
+      %span.caret
+    %ul.dropdown-menu#menu-track
+      = render 'dropdown'
+
+= render 'modals'
+
+= render 'templates'

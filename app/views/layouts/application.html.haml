@@ -1,0 +1,11 @@
+!!! 5
+%html
+  %head
+    %meta(charset='UTF-8')
+    %meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+    %title Music database
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = yield
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true

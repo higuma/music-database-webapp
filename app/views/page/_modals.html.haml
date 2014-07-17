@@ -1,0 +1,83 @@
+-# edit artist
+%div.modal.fade#modal-edit-artist
+  %div.modal-dialog
+    %div.modal-content
+      %div.modal-header
+        %button.close(type="button" data-dismiss="modal") &times;
+        %h4.modal-title
+      %div.modal-body
+        %div.form-group
+          %label Artist name
+          %input.form-control(type='text' name="name" placeholder="Artist name")
+      %div.modal-footer
+        %button.btn.btn-default(type="button" data-dismiss="modal") Cancel
+        %button.btn.btn-primary(type="button")
+
+-# edit release
+%div.modal.fade#modal-edit-release
+  %div.modal-dialog
+    %div.modal-content
+      %div.modal-header
+        %button.close(type="button" data-dismiss="modal") &times;
+        %h4.modal-title
+      %div.modal-body.form-horizontal
+        %div.form-group
+          %div.col-sm-9
+            %label Release title
+            %input.form-control(type='text' name="title" placeholder="Title")
+          %div.col-sm-3
+            %label Year
+            %select.form-control(name="year")
+              - for y in (1950 .. Time.now.year + 1)
+                %option(value=y)<
+                  = y
+      %div.modal-footer
+        %button.btn.btn-default(type="button" data-dismiss="modal") Cancel
+        %button.btn.btn-primary(type="button")
+
+-# edit track
+%div.modal.fade#modal-edit-track
+  %div.modal-dialog
+    %div.modal-content
+      %div.modal-header
+        %button.close(type="button" data-dismiss="modal") &times;
+        %h4.modal-title
+      %div.modal-body.form-horizontal
+        %div.form-group
+          %div.col-sm-2
+            %label No.
+            %select.form-control(name="number")
+              - for n in (0..99)
+                %option(value=n)<
+                  = n
+          %div.col-sm-10
+            %label Title
+            %input.form-control(type='text' name="title" placeholder="Title")
+        %div.form-group
+          %div.col-sm-2
+            %label Min
+            %select.form-control(name="minutes")
+              - for m in (0..59)
+                %option(value=m)<
+                  = m
+          %div.col-sm-2
+            %label Sec
+            %select.form-control(name="seconds")
+              - for s in (0..59)
+                %option(value=s)<
+                  = sprintf '%02d', s
+      %div.modal-footer
+        %button.btn.btn-default(type="button" data-dismiss="modal") Cancel
+        %button.btn.btn-primary(type="button")
+
+-# delete item (common)
+%div.modal.fade#modal-delete
+  %div.modal-dialog
+    %div.modal-content
+      %div.modal-header
+        %button.close(type="button" data-dismiss="modal") &times;
+        %h4.modal-title
+      %div.modal-body
+      %div.modal-footer
+        %button.btn.btn-default(type="button" data-dismiss="modal") Cancel
+        %button.btn.btn-primary(type="button") Delete
