@@ -109,7 +109,8 @@ CollectionView = Backbone.View.extend
     'click li': 'onSelectItem'
 
   initialize: (options) ->
-    options.parentView.childView = @ if options.parentView?
+    @parentView = options.parentView
+    @parentView.childView = @ if @parentView?
     @listenTo @items, 'sync', @onSync
     @selected = null
 
@@ -133,10 +134,16 @@ CollectionView = Backbone.View.extend
   onSync: ->
     if @items.length > 0
       @item = @items.models[0] unless @item
-      ItemsMenus[@name].enable new: true, edit: true, delete: true
+      ItemsMenus[@name].enable
+        new: true
+        edit: true
+        delete: true
     else
       @item = null
-      ItemsMenus[@name].enable new: @items.owner?, edit: false, delete: false
+      ItemsMenus[@name].enable
+        new: !@parentView? || @items.owner?
+        edit: false
+        delete: false
     @render()
     @syncChildView()
 
